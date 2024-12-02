@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep 30 12:14:13 2024
-
-@author: kolli
-"""
 # Import necessary libraries
 import pandas as pd
 import numpy as np
@@ -17,7 +11,8 @@ from scipy.stats import mstats
 iron_ore_data = pd.read_excel(r'C:\Users\kolli\OneDrive\Documents\360DigiTMG\IRON ORE PRICE ANALYSIS - PROJECT\Downloads\iron_ore_dataset.xlsx')
 
 ## ********************* HANDLING MISSING VALUES *******************####
-# Check for missing values 
+
+# Check for missing values ####
 missing_values = iron_ore_data.isnull().sum()
 print("Missing values before imputation:\n", missing_values)
 
@@ -40,6 +35,7 @@ categorical_cols = iron_ore_data.select_dtypes(include=['object']).columns
 iron_ore_data[categorical_cols] = iron_ore_data[categorical_cols].fillna('unknown')
 
 #############*********Histogram and Density Plots ************############
+
 # Loop through each numerical column and plot histogram + density plot after imputation
 for col in numerical_cols:
     plt.figure(figsize=(10, 6))
@@ -59,6 +55,7 @@ iron_ore_data.to_csv('iron_ore_dataset_with_imputed_values.csv', index=False)
 print("Missing values handled successfully for all numeric and categorical columns.")
 
 ## ********************* HANDLING DUPLICATES  *******************####
+
 # Step 1: Detect duplicate rows in the dataset
 duplicate_rows = iron_ore_data.duplicated()
 
@@ -76,6 +73,7 @@ iron_ore_data[duplicate_rows].to_csv('duplicate_rows.csv', index=False)
 print("Duplicate rows saved to 'duplicate_rows.csv'.")
 
 #########************** TYPE CASTING *******************************##########
+
 # Convert categorical columns to 'category' data type
 iron_ore_data['Ore_Grade'] = iron_ore_data['Ore_Grade'].astype('category')
 iron_ore_data['Mining_Location'] = iron_ore_data['Mining_Location'].astype('category')
@@ -84,6 +82,7 @@ iron_ore_data['Mining_Location'] = iron_ore_data['Mining_Location'].astype('cate
 print(iron_ore_data.dtypes)
 
 ############******************* BOX PLOT ****************##############
+
 sns.set(style="whitegrid")
 # Create box plots for each numerical column
 for col in numerical_cols:
@@ -157,6 +156,7 @@ print("One-hot encoding completed and dataset saved as 'iron_ore_dataset_encoded
 
 
 #########**********************Transformation **************************#########
+
 ## Highly skewed columns (Iron_Ore_Price, Production_Volume) may benefit from Logarithmic 
 ## or Exponential Transformations to reduce skewness.
 ## Most other columns are approximately symmetric with low skewness, 
