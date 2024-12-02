@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep 30 10:53:15 2024
-
-@author: kolli
-"""
-
 # Import necessary libraries
 import pandas as pd
 import numpy as np
