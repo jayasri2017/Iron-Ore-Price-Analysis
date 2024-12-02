@@ -57,3 +57,5 @@ Power BI: Interactive dashboards and reports.Displaying key performance indicato
 ____________________________________________________________________________________________________________________________________________________________________
 
 Dashboard snapshot:
+
+https://github.com/jayasri2017/Iron-Ore-Price-Analysis/blob/72a16a5de6770ff55e3b8a1b2e910d2b2dec1777/Dashboard%20screenshot.png
